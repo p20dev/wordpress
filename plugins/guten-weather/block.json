@@ -1,0 +1,25 @@
+{
+  "apiVersion": 3,
+  "name": "p20-guten-weather/forecast",
+  "version": "1.1.10",
+  "title": "Guten Weather",
+  "description": "Displays forecasts for the cities configured under P20 Plugins → Guten Weather.",
+  "category": "widgets",
+  "icon": "cloud",
+  "editorScript": "met-vejr-editor",
+  "style": "file:./style.css",
+  "attributes": {
+    "layout": { "type": "string", "enum": ["list", "table", "pill"], "default": "list" },
+    "showWind": { "type": "boolean", "default": true },
+    "showPrecipitation": { "type": "boolean", "default": false },
+    "showTime": { "type": "boolean", "default": true },
+    "showIcons": { "type": "boolean", "default": false }
+  },
+  "supports": {
+    "html": false,
+    "color": { "text": true, "background": true, "gradients": true },
+    "typography": { "fontSize": true, "lineHeight": true },
+    "spacing": { "margin": true, "padding": true },
+    "__experimentalBorder": { "color": true, "radius": true, "style": true, "width": true }
+  }
+}

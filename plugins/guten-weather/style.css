@@ -1,0 +1,33 @@
+.met-vejr-table-wrap {
+    overflow-x: auto;
+}
+
+.met-vejr-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.met-vejr-table th,
+.met-vejr-table td {
+    border-block-end: 1px solid currentColor;
+    padding: 0.4em 0.65em;
+    text-align: start;
+}
+
+.met-vejr-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    list-style: none;
+    padding: 0;
+}
+
+.met-vejr-pills li {
+    border: 1px solid currentColor;
+    border-radius: 1.25em;
+    padding: 0.35em 0.8em;
+}
+
+.met-vejr-source {
+    font-size: 0.875em;
+}
