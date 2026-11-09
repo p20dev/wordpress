@@ -44,6 +44,7 @@ if ( ! function_exists( __NAMESPACE__ . '\\register_github_updates' ) ) {
                             'version' => $version,
                             'url'     => $url . '/tag/' . $matches[0],
                             'package' => $package,
+                            'release_notes' => $release['body'] ?? '',
                         );
                         break;
                     }
