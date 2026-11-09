@@ -12,7 +12,7 @@ add_filter('plugins_api', function ($result, $action, $args) {
     $plugin = get_plugin_data(__DIR__ . '/guten-weather.php', false, false);
     $update = apply_filters('update_plugins_github.com', false, $plugin, plugin_basename(__DIR__ . '/guten-weather.php'), array());
     $version = $plugin['Version'];
-    $changelog = '<h4>1.1.13</h4><p>Moved settings under the shared P20 Plugins companion and added one-click setup.</p><h4>1.1.12</h4><p>The update dialog now shows the incoming GitHub release notes.</p><h4>1.1.11</h4><ul><li>Added the native plugin details dialog.</li><li>Made the automatic updates control visible when the installed version is current.</li></ul><h4>1.1.10</h4><p>First public release.</p>';
+    $changelog = '<h4>1.1.14</h4><p>Renamed the Installed Plugins entry to P20 Guten Weather.</p><h4>1.1.13</h4><p>Moved settings under the shared P20 Plugins companion and added one-click setup.</p><h4>1.1.12</h4><p>The update dialog now shows the incoming GitHub release notes.</p><h4>1.1.11</h4><ul><li>Added the native plugin details dialog.</li><li>Made the automatic updates control visible when the installed version is current.</li></ul><h4>1.1.10</h4><p>First public release.</p>';
     if (isset($update['version']) && version_compare($update['version'], $version, '>')) {
         $version = $update['version'];
         $notes = trim(preg_replace('/^Source commit: [a-f0-9]+\s*$/mi', '', $update['release_notes'] ?? ''));
@@ -44,7 +44,7 @@ add_filter('plugin_row_meta', function ($links, $file, $data) {
     // Core adds this link itself when GitHub update metadata supplies a slug.
     $url = network_admin_url('plugin-install.php?tab=plugin-information&plugin=guten-weather&TB_iframe=true&width=600&height=550');
     $links[] = sprintf(
-        '<a href="%s" class="thickbox open-plugin-details-modal" aria-label="%s" data-title="Guten Weather">%s</a>',
+        '<a href="%s" class="thickbox open-plugin-details-modal" aria-label="%s" data-title="P20 Guten Weather">%s</a>',
         esc_url($url),
         esc_attr__('More information about Guten Weather'),
         esc_html__('View details')
