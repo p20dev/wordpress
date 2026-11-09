@@ -28,7 +28,7 @@ if ( ! function_exists( __NAMESPACE__ . '\\register_github_updates' ) ) {
                 }
 
                 $version = $matches[1];
-                if ( ! version_compare( $version, $best['version'] ?? $data['Version'], '>' ) ) {
+                if ( isset( $best['version'] ) && ! version_compare( $version, $best['version'], '>' ) ) {
                     continue;
                 }
 

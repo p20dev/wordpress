@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Guten Weather
  * Description: Displays local weather forecasts from MET Norway in a Gutenberg block.
- * Version: 1.1.10
+ * Version: 1.1.11
  * License: GPL-2.0-or-later
  * License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  * Author: P20.dev
@@ -20,6 +20,7 @@ require_once __DIR__ . '/p20-admin-menu.php';
 require_once __DIR__ . '/city-search.php';
 require_once __DIR__ . '/render.php';
 require_once __DIR__ . '/github-updates.php';
+require_once __DIR__ . '/plugin-details.php';
 
 \P20\WordPressPlugins\register_github_updates(__FILE__, 'guten-weather');
 
@@ -99,7 +100,7 @@ add_action('admin_menu', function () {
     });
     add_action('load-' . $page, function () {
         add_action('admin_enqueue_scripts', function () {
-            wp_enqueue_script('met-vejr-admin', plugins_url('admin.js', __FILE__), array(), '1.1.10', true);
+            wp_enqueue_script('met-vejr-admin', plugins_url('admin.js', __FILE__), array(), '1.1.11', true);
         });
     });
 });
@@ -121,7 +122,7 @@ function forecast($lat, $lon) {
         $response = wp_remote_get($url, array(
             'timeout' => 3,
             'redirection' => 0,
-            'user-agent' => 'Guten-Weather/1.1.10 (' . home_url('/') . ')',
+            'user-agent' => 'Guten-Weather/1.1.11 (' . home_url('/') . ')',
             'headers' => $headers,
         ));
         if (!is_wp_error($response)) {
@@ -159,7 +160,7 @@ add_action('init', function () {
         'met-vejr-editor',
         plugins_url('editor.js', __FILE__),
         array('wp-blocks', 'wp-element', 'wp-block-editor', 'wp-components', 'wp-server-side-render'),
-        '1.1.10',
+        '1.1.11',
         true
     );
     register_block_type(__DIR__, array('render_callback' => __NAMESPACE__ . '\render'));
