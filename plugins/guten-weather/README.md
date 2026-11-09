@@ -2,7 +2,7 @@
 
 Guten Weather by [P20.dev](https://wordpress.p20.dev) displays local forecasts in the WordPress block editor and on the front end. It requires WordPress 6.5 or newer and PHP 7.4 or newer.
 
-Install and activate the ZIP, then open **P20 Plugins → Guten Weather**. Add cities by name or enter coordinates manually, choose a temperature unit, and save. Insert the **Guten Weather** block into a page, post, or template. The block sidebar controls the layout, forecast details, and styling.
+Install and activate the ZIP. Guten Weather requires the P20 Plugins companion for its settings. If prompted, click **Install and activate P20 Plugins**. You can also install the [companion ZIP](https://github.com/p20dev/wordpress/releases/tag/p20-plugins-v1.0.0) through the WordPress plugin uploader. Then open **P20 Plugins → Guten Weather**. Add cities by name or enter coordinates manually, choose a temperature unit, and save. Insert the **Guten Weather** block into a page, post, or template. The block sidebar controls the layout, forecast details, and styling.
 
 ## External services
 

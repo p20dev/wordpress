@@ -1,7 +1,7 @@
 {
   "apiVersion": 3,
   "name": "p20-guten-weather/forecast",
-  "version": "1.1.12",
+  "version": "1.1.13",
   "title": "Guten Weather",
   "description": "Displays forecasts for the cities configured under P20 Plugins → Guten Weather.",
   "category": "widgets",

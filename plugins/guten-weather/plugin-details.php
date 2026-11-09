@@ -12,7 +12,7 @@ add_filter('plugins_api', function ($result, $action, $args) {
     $plugin = get_plugin_data(__DIR__ . '/guten-weather.php', false, false);
     $update = apply_filters('update_plugins_github.com', false, $plugin, plugin_basename(__DIR__ . '/guten-weather.php'), array());
     $version = $plugin['Version'];
-    $changelog = '<h4>1.1.12</h4><p>The update dialog now shows the incoming GitHub release notes.</p><h4>1.1.11</h4><ul><li>Added the native plugin details dialog.</li><li>Made the automatic updates control visible when the installed version is current.</li></ul><h4>1.1.10</h4><p>First public release.</p>';
+    $changelog = '<h4>1.1.13</h4><p>Moved settings under the shared P20 Plugins companion and added one-click setup.</p><h4>1.1.12</h4><p>The update dialog now shows the incoming GitHub release notes.</p><h4>1.1.11</h4><ul><li>Added the native plugin details dialog.</li><li>Made the automatic updates control visible when the installed version is current.</li></ul><h4>1.1.10</h4><p>First public release.</p>';
     if (isset($update['version']) && version_compare($update['version'], $version, '>')) {
         $version = $update['version'];
         $notes = trim(preg_replace('/^Source commit: [a-f0-9]+\s*$/mi', '', $update['release_notes'] ?? ''));
@@ -30,7 +30,7 @@ add_filter('plugins_api', function ($result, $action, $args) {
         'requires_php' => $plugin['RequiresPHP'],
         'sections' => array(
             'description' => '<p>Guten Weather displays local forecasts from MET Norway in pages, posts, and templates. Choose a list, table, or pills and customize the styling and weather details for each block.</p><p>Licensed under GPL-2.0-or-later.</p>',
-            'installation' => '<p>Open P20 Plugins → Guten Weather, add your cities, and choose Celsius or Fahrenheit. Then insert the Guten Weather block in the editor.</p>',
+            'installation' => '<p>Activate Guten Weather and complete the P20 Plugins setup if prompted. Open P20 Plugins → Guten Weather, add your cities, and choose Celsius or Fahrenheit. Then insert the Guten Weather block in the editor.</p>',
             'changelog' => $changelog,
         ),
     );

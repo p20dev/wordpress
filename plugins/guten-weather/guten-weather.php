@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Guten Weather
  * Description: Displays local weather forecasts from MET Norway in a Gutenberg block.
- * Version: 1.1.12
+ * Version: 1.1.13
  * License: GPL-2.0-or-later
  * License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  * Author: P20.dev
@@ -16,7 +16,7 @@ namespace P20\GutenWeather;
 
 defined('ABSPATH') || exit;
 
-require_once __DIR__ . '/p20-admin-menu.php';
+require_once __DIR__ . '/companion.php';
 require_once __DIR__ . '/city-search.php';
 require_once __DIR__ . '/render.php';
 require_once __DIR__ . '/github-updates.php';
@@ -64,7 +64,11 @@ add_action('admin_init', function () {
 });
 
 add_action('admin_menu', function () {
-    $page = \P20\WordPressPlugins\add_settings_page('p20-guten-weather', 'Guten Weather', function () {
+    if (!companion_ready()) {
+        return;
+    }
+
+    $page = \P20\Plugins\add_settings_page('p20-guten-weather', 'Guten Weather', function () {
         if (!current_user_can('manage_options')) {
             return;
         }
@@ -100,7 +104,7 @@ add_action('admin_menu', function () {
     });
     add_action('load-' . $page, function () {
         add_action('admin_enqueue_scripts', function () {
-            wp_enqueue_script('met-vejr-admin', plugins_url('admin.js', __FILE__), array(), '1.1.12', true);
+            wp_enqueue_script('met-vejr-admin', plugins_url('admin.js', __FILE__), array(), '1.1.13', true);
         });
     });
 });
@@ -122,7 +126,7 @@ function forecast($lat, $lon) {
         $response = wp_remote_get($url, array(
             'timeout' => 3,
             'redirection' => 0,
-            'user-agent' => 'Guten-Weather/1.1.12 (' . home_url('/') . ')',
+            'user-agent' => 'Guten-Weather/1.1.13 (' . home_url('/') . ')',
             'headers' => $headers,
         ));
         if (!is_wp_error($response)) {
@@ -160,7 +164,7 @@ add_action('init', function () {
         'met-vejr-editor',
         plugins_url('editor.js', __FILE__),
         array('wp-blocks', 'wp-element', 'wp-block-editor', 'wp-components', 'wp-server-side-render'),
-        '1.1.12',
+        '1.1.13',
         true
     );
     register_block_type(__DIR__, array('render_callback' => __NAMESPACE__ . '\render'));
