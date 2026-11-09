@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: P20 Plugins
+ * Plugin Name: P20 - Plugin Manager
  * Description: Provides a shared WordPress admin menu and overview for P20 plugins.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: P20.dev
  * Author URI: https://wordpress.p20.dev
  * License: GPL-2.0-or-later

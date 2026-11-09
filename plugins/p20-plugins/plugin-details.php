@@ -13,7 +13,7 @@ add_filter('plugins_api', function ($result, $action, $args) {
     $plugin = get_plugin_data($file, false, false);
     $update = apply_filters('update_plugins_github.com', false, $plugin, plugin_basename($file), array());
     $version = $plugin['Version'];
-    $changelog = '<h4>1.0.0</h4><p>First release. Adds the shared P20 Plugins menu, overview, and settings registration API.</p>';
+    $changelog = '<h4>1.0.1</h4><p>Renamed the Installed Plugins entry to P20 - Plugin Manager.</p><h4>1.0.0</h4><p>First release. Adds the shared P20 Plugins menu, overview, and settings registration API.</p>';
     if (isset($update['version']) && version_compare($update['version'], $version, '>')) {
         $version = $update['version'];
         $notes = trim(preg_replace('/^Source commit: [a-f0-9]+\s*$/mi', '', $update['release_notes'] ?? ''));
@@ -44,6 +44,6 @@ add_filter('plugin_row_meta', function ($links, $file, $data) {
     }
 
     $url = network_admin_url('plugin-install.php?tab=plugin-information&plugin=p20-plugins&TB_iframe=true&width=600&height=550');
-    $links[] = '<a href="' . esc_url($url) . '" class="thickbox open-plugin-details-modal" data-title="P20 Plugins">' . esc_html__('View details') . '</a>';
+    $links[] = '<a href="' . esc_url($url) . '" class="thickbox open-plugin-details-modal" data-title="P20 - Plugin Manager">' . esc_html__('View details') . '</a>';
     return $links;
 }, 10, 3);
