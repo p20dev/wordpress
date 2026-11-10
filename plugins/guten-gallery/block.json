@@ -1,0 +1,37 @@
+{
+  "apiVersion": 3,
+  "name": "p20-guten-gallery/gallery",
+  "version": "1.0.9",
+  "title": "Guten Gallery",
+  "description": "Display selected images or images attached to the current post.",
+  "category": "media",
+  "icon": "format-gallery",
+  "textdomain": "guten-gallery",
+  "usesContext": ["postId"],
+  "editorScript": "file:./editor.js",
+  "style": "file:./style.css",
+  "viewScript": "file:./view.js",
+  "render": "file:./render.php",
+  "attributes": {
+    "source": { "type": "string", "enum": ["manual", "attached"], "default": "manual" },
+    "imageIds": { "type": "array", "items": { "type": "integer" }, "default": [] },
+    "layout": { "type": "string", "enum": ["grid", "masonry", "carousel", "mosaic"], "default": "grid" },
+    "columns": { "type": "integer", "default": 3 },
+    "gap": { "type": "integer", "default": 16 },
+    "captions": { "type": "boolean", "default": true },
+    "captionAlignment": { "type": "string", "enum": ["left", "center", "right"], "default": "left" },
+    "fullSize": { "type": "boolean", "default": false },
+    "carouselEqualHeight": { "type": "boolean", "default": false },
+    "carouselMaxHeight": { "type": "integer", "default": 0 },
+    "carouselAutoplay": { "type": "boolean", "default": true },
+    "carouselLoop": { "type": "boolean", "default": false }
+  },
+  "supports": {
+    "html": false,
+    "align": ["wide", "full"],
+    "color": { "text": true, "background": true, "gradients": true },
+    "typography": { "fontSize": true, "lineHeight": true },
+    "spacing": { "margin": true, "padding": true },
+    "__experimentalBorder": { "color": true, "radius": true, "style": true, "width": true }
+  }
+}
